@@ -9,13 +9,12 @@
     <!--백단이랑 소통할 때 만 템플릿 언어씀-->
         <form action="{% url 'login' %}" method="post" class="LoginForm">
             {% csrf_token %}
-            {{message}}
             <h2>Login</h2>
             <div class="idForm">
-                <input type="text" name ="username" class="id" placeholder="ID" />
+                <input type="text" name ="username"  placeholder="ID" />
             </div>
             <div class="passForm">
-                <input type="password" name ="password" class="pw" placeholder="PW" />
+                <input type="password" name ="password"  placeholder="PW" />
             </div>
             <input type='submit' value='로그인' />
         </form>
