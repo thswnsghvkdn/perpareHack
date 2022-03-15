@@ -6,7 +6,7 @@
 </head>
 <body>
     <div className="Writer">
-        <form action="{% url 'detailImage' pk=contents.pk %}" method="post" class="WriteForm">
+        <form action="{% url 'update' pk=contents.pk %}" method="post" class="WriteForm">
          {% csrf_token %}
             <div class="topic">
                 <input placeholder="제목" name ="title" value = "{{contents.title}}"/>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div className="Login">
+    <!--백단이랑 소통할 때 만 템플릿 언어씀-->
+        <form action="{% url 'signup' %}" method="post" class="LoginForm">
+            {% csrf_token %}
+            <h2>Signup</h2>
+            <div class="idForm">
+                <input type="text" name ="username"  placeholder="ID" />
+            </div>
+            <div class="passForm">
+                <input type="password" name ="password"  placeholder="PW" />
+            </div>
+            <input type='submit' value='가입' />
+        </form>
+    </div>
+</body>
+</html>

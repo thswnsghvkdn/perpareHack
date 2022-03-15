@@ -10,9 +10,12 @@
         <header >
           <div >
           <!-- html에 없는 기능 템플릿 코드로 -->
+          {% if user.is_authenticated %}
              <button type="button" ><a href="/logout">Logout</a></button> 
+          {% else %} 
             <button type="button" ><a href="/login">Login</a></button> 
-            <button type="button" ><a href="/join">Sign up</a></button>
+            <button type="button" ><a href="/signup">Sign up</a></button>
+          {% endif %}
           </div>
         </header>
       </div>
@@ -25,14 +28,17 @@
           <th scope="col">작성자</th>
           <th scope="col">제목</th>
         </tr>
-        <tr>
-          <td>철수</td>
-          <td>안녕하세요</td>
-        </tr>
+          {% for data in contents %}
+          <tr>
+            <td>{{data.userName}}</td>
+            <td><a href = "{% url 'update' pk=data.id %}">{{data.title}}</a></td>
+          </tr>
+          {% endfor %}
       </table>
       <div >
+      {% if user.is_authenticated %}
         <button type="button" ><a href="/write">글작성</a></button>
-        <button type="button" ><a href="/writeImage">이미지작성</a></button>
+      {% endif %}
       </div>
     </div>
 </body>
